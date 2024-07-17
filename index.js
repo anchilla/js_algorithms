@@ -138,15 +138,77 @@ var primal=true;
 	}
 }
 console.log("primal je: "+primal+", "+number);
+if(primal) return true;
 }
 checkPrime(3);
 checkPrime(8);
-/*
+
 function checkPrimesInNumber(number){
 var delilac = 2;
 var primBrojevi = [];
-	while number>2
-	if	number%delilac = 0 //znaci da ga sadrzi
-		? i delilac proveris da li je primalni
+	while (number>2){
+	if((number%delilac == 0)){//znaci da ga sadrzi
+	//&& (checkPrime(delilac)==true) - ovo ti ne znaci nis u uslovu, je on 
+		//mora da se prekine nekako, a to radis tako sto smanjujes number
 	primBrojevi.push(delilac);
-}*/
+	number = number/delilac; //ovde samnjis number, podelis ga s prim br. 
+	// i ono sto ostane ce biti za drugi delilac dok ne bude sve manji, od 2
+	delilac++;
+	}
+}
+console.log("primBrojevi niz: "+primBrojevi);
+}
+checkPrimesInNumber(12);
+
+//FIND nTH FIBONNACHI NUMBER - napravis fibonaci niz do zadatog broja
+function makeFibonachi(nth){
+	var array = [0,1];
+	//if(n<=2) return 1;
+	//a+b = c
+	for(var i = 2; i<=nth; i++){
+		//stavila si  array[i-1] + array[i]->ovaj mora da bude -2, jer i
+		// jos ne postoji, moras da ga napravis. Ovako ce biti [1]+[2]->koji
+		// ne postoji
+		var c = array[i-1] + array[i-2];
+	
+	array.push(c);
+}
+console.log("Fibonaci je: "+array);
+}
+
+makeFibonachi(8);
+
+//REMOVE DUPLICATES FROM ARRAY
+function removeDuplicates(array){
+	var new_array = [];
+	for (var i = 0; i <= array.length; i++) {
+		//for (var j = 1; j < array.length; j++) {
+	if(!new_array.includes(array[i])){
+		new_array.push(array[i]);
+	//if(array[i].equals(array[j])){
+		//delete array[i];
+	}
+
+}
+console.log("niz je: "+new_array);
+}
+removeDuplicates([4,6,4,2,0,2,7]);
+
+//SWAP NUMBERS WITHOUT TEMP
+function swap (a, b){
+	var first =a;
+	var second = b;
+	console.log("Numers are: "+second+", "+first);
+}
+swap(3,9);
+
+//REVERSE STRING
+function reverseString(string){
+	var temp ="";
+	var new_string ="";
+	for(var i=string.length-1; i>=0; i--){
+		new_string += string[i];
+	}
+	console.log("obrnuti string: "+new_string);
+}
+reverseString("weekend");
